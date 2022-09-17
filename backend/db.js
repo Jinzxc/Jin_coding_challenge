@@ -6,8 +6,7 @@ module.exports = async () => {
       useNewUrlParser: true,
     };
     await mongoose.connect(
-      /* CREATE & CONNECT TO YOUR OWN MONGODB DATABASE */
-      "",
+      "mongodb://localhost/taskdb", // currently in testing, might try Atlas later
       connectionParams,
     );
     console.log("Connected to MongoDB");

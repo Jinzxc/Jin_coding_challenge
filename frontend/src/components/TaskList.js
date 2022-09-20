@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Task from "./Task";
-import { getTasks } from "../services/taskServices";
+import { getTasks, deleteAllTask} from "../services/taskServices";
 
 const TaskList = () => {
 
@@ -23,11 +23,15 @@ const TaskList = () => {
     }
   }, [tasks]);
 
+  const deleteAll = () => {
+    deleteAllTask();
+  }
+
   return (
     <div className='d-flex flex-column align-items-center pt-2'>
       <h1 className='text-center'>Tasks</h1>
-      {/* The tasks div could so some line breaks/bounds, giant text strings goes off the screen */}
-      {/* Giant texts also take the delete and updates with them */}
+      {/* Delete all included mostly for testing */}
+      <button onClick={deleteAll} className="rounded m-1">DELETE ALL</button>
       <div> 
         {tasks.length ? (
           tasks.map((task) => <Task key={task._id} task={task} />)

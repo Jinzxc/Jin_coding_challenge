@@ -1,0 +1,23 @@
+POST http://localhost:8080/api/tasks/create
+Content-Type: application/json
+
+{
+    "task": "Testing Create"
+}
+
+###
+GET http://localhost:8080/api/tasks/
+
+###
+PUT http://localhost:8080/api/tasks/update/[Replace with task id]
+Content-Type: application/json
+
+{
+    "task": "Testing Update"
+}
+
+###
+DELETE  http://localhost:8080/api/tasks/delete/[Replace with task id]
+
+###
+DELETE  http://localhost:8080/api/tasks/delete

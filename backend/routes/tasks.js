@@ -3,48 +3,67 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/create", async (req, res) => {
+  if (req.body === null) {
+    res.status(400).send('Bad request');
+    return;
+  }
+
   const task = new Task(req.body);
   try {
     await task.save();
-    res.send(task);
+    res.status(201).send(task);
   } catch (error) {
-    res.send(error);
+    res.status(500).send(error);
   }
 });
 
 router.get("/", async (req, res) => {
   try {
     const tasks = await Task.find();
-    res.send(tasks);
+    res.status(200).send(tasks);
   } catch (error) {
-    res.send(error);
+    res.status(500).send(error);
   }
 });
 
-/* TODOS: 
-    - implement argument checks
-    - add status codes
-    ~ unlikely to add "get by name", requires unnecessary task checks
-*/ 
-
 router.put("/update/:id", async (req, res) => {
-  let task;
-  try {
-    task = await Task.findByIdAndUpdate(req.params.id, req.body);
-    res.send("task updated");
-  } catch (error) {
-    res.send(error);
+  if (req.body === null) {
+    res.status(400).send('Bad request');
+    return;
   }
+
+  Task.findByIdAndUpdate(req.params.id, req.body, 
+    (error, data) => {
+      if (error) {
+        res.status(500).send(error);
+      } else
+      if (!data) {
+        res.status(404).send("Task not found");
+      } else {
+        res.status(200).send('Updated task \n' + data);
+      }
+    }
+  );
 });
 
 router.delete("/delete/:id", async (req, res) => {
-  let task;
-  try {
-    task = await Task.findByIdAndRemove(req.params.id);
-    res.send("task removed");
-  } catch (error) {
-    res.send(error);
+  if (req.body === null) {
+    res.status(400).send('Bad request');
+    return;
   }
+
+  Task.findByIdAndRemove(req.params.id, 
+    (error, data) => {
+      if (error) {
+        res.status(500).send(error);
+      } else 
+      if (!data) {
+        res.status(404).send("Task not found");
+      } else {
+        res.status(200).send('Deleted task');
+      }
+    }
+  );
 });
 
 // Delete (almost) all entries
@@ -52,9 +71,9 @@ router.delete("/delete/", async (req, res) => {
   let task;
   try {
     task = await Task.deleteMany({})
-    res.send("all task removed");
+    res.status(200).send("All task removed");
   } catch (error) {
-    res.send(error);
+    res.status(500).send(error);
   }
 });
 

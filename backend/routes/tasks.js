@@ -21,13 +21,10 @@ router.get("/", async (req, res) => {
   }
 });
 
-// PUT, DELETE are works in progress
 /* TODOS: 
     - implement argument checks
     - add status codes
-    ~ add option to delete by name
-    ~ add option to search by name
-    ~ create patch route
+    ~ unlikely to add "get by name", requires unnecessary task checks
 */ 
 
 router.put("/update/:id", async (req, res) => {
@@ -45,6 +42,17 @@ router.delete("/delete/:id", async (req, res) => {
   try {
     task = await Task.findByIdAndRemove(req.params.id);
     res.send("task removed");
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+// Delete (almost) all entries
+router.delete("/delete/", async (req, res) => {
+  let task;
+  try {
+    task = await Task.deleteMany({})
+    res.send("all task removed");
   } catch (error) {
     res.send(error);
   }

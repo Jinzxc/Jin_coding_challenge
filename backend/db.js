@@ -6,7 +6,7 @@ module.exports = async () => {
       useNewUrlParser: true,
     };
     await mongoose.connect(
-      "mongodb://localhost/taskdb", // currently in testing, might try Atlas later
+      "mongodb://localhost/taskdb", // Local DB for testing, could also switch to cloud based db (Atlas)
       connectionParams,
     );
     console.log("Connected to MongoDB");

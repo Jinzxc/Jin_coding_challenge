@@ -1,38 +1,23 @@
-Hey!
+# Jin's version of the BU H4I Challenge
 
-Thanks for your interest in joining Hack4Impact BU! We require prospective Impact team members to complete this coding challenge for two reasons: 1) So they have a basic understanding of some possible obstacles they will face when working on one of our partner’s projects and 2) to see if the Impact Team is currently the right place for you.
+This is a mess of frontend and backend code patched together through sleep deprivation
 
-As much as this is an examination to join the Impact Team, this in turn assesses your current abilities as well. If you find this challenge a bit too difficult or you would like to have more exposure to these technologies & those similar feel free to contact us at bostonuniversity@hack4impact.org and express interest in joining the Junior Development Team.
+React code is a development version for testing and examining for educational purposes <br/>
+Please do not use this for actual deployment (but you can try). 
 
-Without further ado, please complete the following (note, appropriate places for these actions items to be completed will be denoted with comments in the code):
+Access to database is insecure and does not check for credentials (there aren't even credential checks in the code).
 
-1. Preliminary:
+To test the website:
+  1. start a running local instance of MongoDB ([MongoDB Community download](https://www.mongodb.com/docs/manual/administration/install-community/))
+  2. run [nodemon](https://www.npmjs.com/package/nodemon) in the backend directory on `server.js` to start the DB in the background
+  3. run [npm start](https://docs.npmjs.com/cli/v8/commands/npm-start) in the frontend directory to start the React website
+  4. Mess around with the the website (bet you didn't see the second the)
+  5. ???
+  6. Profit
+- Code is equipped with route.rest for testing backend routes ([VSCode's REST Client extenstion](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) helps with this) <br/>
+- When testing the website the ```<Task/>``` components are draggable but I didn't go crazy with the implementation <br/> so there are going to be positioning bugs
 
-- create your own git repository
-- fork this repository and connect to your remote repo
+<br/>
+Have fun breaking thing!
 
-2. In the backend directory:
-
-- In your terminal run 'npm init -y; npm install nodemon -g; npm install cors mongoose express'
-
-  NOTE: after this, you can run 'npx nodemon server' in the terminal to run the server when you please. nodemon allows us to run the server and concurrently update it when we save our 'backend' directory files.
-
-- Initialize the Express app
-
-- Create a database on MongoDB & connect it to your application
-
-- Create a ‘task’ schema (‘taskSchema’) with a 'String' data type & make it required.
-
-- Create PUT (update operation) & DELETE (delete operation) request routes
-
-3. In the frontend directory:
-
-- In your terminal run 'npm i axios'
-
-- Create the update (PUT request) & delete (DELETE request) functions in services/taskServices.js
-
-- Create update (PUT request) & delete (DELETE request) operations (using the previous 2 functions)
-
-- Create ‘CreateTask’ component (this should make a POST request, hence using the create operation already implemented in services/taskServices.js)
-
-Please, provide us access (hack4impact-bu) when you are finished in order to review your repository. Feel free to change the design if you’d like or host it if you'd like (bonus points!). We look forward to your submission!
+![crocodile](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/OrinocoCrocodile.jpg/440px-OrinocoCrocodile.jpg)

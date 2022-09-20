@@ -7,35 +7,65 @@ const CreateTask = () => {
   // Should the object become more complicated, useReducer might be better
   const [taskData, setTask] = useState('');
 
+  const [validInput, setValidInput] = useState(true);
+  const [submitted, setSubmit] = useState(false);
+  const [submitSucess, setSubmitState] = useState(true);
+
+  const center = 'd-flex justify-content-center align-items-center';
+
   const handleChange = (event) => {
-    // Might need a check for inputs
     setTask(event.target.value);
   }
 
-  // Could add success and failure banner
-  // Will add sound if time permits
   const handleSubmit = (event) => {
     event.preventDefault();
+    setSubmit(true);
+    
+    setValidInput(true);
+    if(taskData === '') {
+      setValidInput(false);
+      return;
+    }
+
     try {
       addTask(taskData);
+      setSubmitState(true);
       setTask('');
     } catch (error) {
       console.log(error);
+      setSubmitState(false);
     }
   }
 
   return (
     <div>
-    <p className='d-flex flex-column align-items-center pt-5'>
-      Create Task Component
-    </p>
-    <form onSubmit={handleSubmit} className='d-flex justify-content-center align-items-center'>
-      <label>
-        Task:
-        <input type="text" name="task" value={taskData} onChange={handleChange} className="ms-1"/>
-      </label>
-      <input type="submit" value="Submit" className="ms-2"/>
-    </form>
+      <p className={`${center} flex-column pt-5`}>
+        Create Task Component
+      </p>
+      <form onSubmit={handleSubmit} className={`${center}`}>
+        <label>
+          Task:
+          <input type="text" name="task" value={taskData} onChange={handleChange} className="ms-1"/>
+        </label>
+        <input type="submit" value="Submit" className="ms-2"/>
+      </form>
+      <div className={`${center}`}>
+      {submitted && 
+            (!validInput
+              ? <p className='text-danger'>
+                  Please use a valid input.
+                </p>
+              : (submitSucess
+                  ? <p className='text-success'>
+                      Created task.
+                    </p>
+                  : <p className='text-danger'>
+                      Failed to create task.
+                    </p>
+                )
+            )
+      }
+      </div>
     </div>
   );
 };

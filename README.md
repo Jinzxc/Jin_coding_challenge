@@ -1,4 +1,4 @@
-# Jin's version of the BU H4I Challenge
+# Jin's version of the BU H4I FA22 Challenge
 
 This is a mess of frontend and backend code patched together through sleep deprivation
 

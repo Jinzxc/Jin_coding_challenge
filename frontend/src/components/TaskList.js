@@ -3,6 +3,9 @@ import Task from "./Task";
 import { getTasks } from "../services/taskServices";
 
 const TaskList = () => {
+
+  // These tasks gets overwritten when the database is fetched
+  // Only the immortal snail understand why these tasks exists
   const [tasks, setTasks] = useState([
     { task: "test1" },
     { task: "test2" },
@@ -23,7 +26,9 @@ const TaskList = () => {
   return (
     <div className='d-flex flex-column align-items-center pt-2'>
       <h1 className='text-center'>Tasks</h1>
-      <div>
+      {/* The tasks div could so some line breaks/bounds, giant text strings goes off the screen */}
+      {/* Giant texts also take the delete and updates with them */}
+      <div> 
         {tasks.length ? (
           tasks.map((task) => <Task key={task._id} task={task} />)
         ) : (

@@ -9,6 +9,12 @@ export function addTask(task) {
   return axios.post(apiUrl + "/create", { task });
 }
 
-/* CREATE 'PUT' FUNCTIONS */
+// The request string is about secure as a toothpick
+// Input will have to be escaped in the React code
+export function updateTask(task) {
+  return axios.put(apiUrl + "/update/" + task._id, { task });
+}
 
-/* CREATE 'DELETE' FUNCTIONS */
+export function deleteTask(task) {
+  return axios.delete(apiUrl + "/delete/" + task._id);
+}

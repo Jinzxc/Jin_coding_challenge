@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../images/h4i_logo.svg";
 
+// Nice navbar
 const Navbar = () => {
   const { pathname } = useLocation();
 

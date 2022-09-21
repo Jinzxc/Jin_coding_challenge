@@ -7,6 +7,10 @@ Please do not use this for actual deployment (but you can try).
 
 Access to database is insecure and does not check for credentials (there aren't even credential checks in the code).
 
+TODO:
+- include an option to connect to Altas
+- work on security
+
 To test the website:
   1. start a running local instance of MongoDB ([MongoDB Community download](https://www.mongodb.com/docs/manual/administration/install-community/))
   2. run [nodemon](https://www.npmjs.com/package/nodemon) in the backend directory on `server.js` to start the DB in the background

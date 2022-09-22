@@ -18,7 +18,7 @@ To test the website:
   5. ???
   6. Profit
 - Code is equipped with route.rest for testing backend routes ([VSCode's REST Client extenstion](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) helps with this) <br/>
-- When testing the website the ```<Task/>``` components are draggable but I didn't go crazy with the implementation<br/>so there are going to be positioning bugs
+- When testing the website the ```<Task/>``` components are draggable but I didn't go crazy with the implementation so there are going to be positioning bugs
 
 <br/>
 Have fun breaking thing!

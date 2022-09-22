@@ -6,9 +6,9 @@ const TaskList = () => {
 
   // These tasks gets overwritten when the database is fetched
   const [tasks, setTasks] = useState([
-    { task: "test1" },
-    { task: "test2" },
-    { task: "test3" },
+    { _id: "a", task: "test1" },
+    { _id: "b", task: "test2" },
+    { _id: "c", task: "test3" },
   ]);
 
   useEffect(() => {

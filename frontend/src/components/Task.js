@@ -50,12 +50,14 @@ const Task = ({ task }) => {
   }
 
   return (
-    // Makes the div draggable. Did not include too much implementation so there are some funky bugs with positioning.
-    // The div is draggable anywhere even to the navibar
-    // The z-order also is not changed so order will be based on creation time
-    <Draggable>
       <div className={`${center} flex-column pb-3 pt-1 border rounded m-2 bg-light`}>
-        <p className='text-light bg-secondary text-center border text-wrap text-break p-3' style={{ width: '400px' }}>{`${task.task}`}</p>
+        {/* The paragraph used to display might work better as an input. A bit annoying if you have to only update one word right now. */}
+        <Draggable>
+        <p  className="text-light bg-secondary text-center border text-wrap text-break p-3 position-static"
+            style={{ width: '400px'}}>
+              {`${task.task}`}
+        </p>
+        </Draggable>
         <div className={`${center}`}>
           <button onClick={delTask} className="rounded m-1">DELETE</button>
           <button onClick={toggleUpdate} className="rounded m-1">UPDATE</button>
@@ -77,7 +79,6 @@ const Task = ({ task }) => {
             </div>
           }
       </div>
-    </Draggable>
   );
 };
 

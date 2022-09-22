@@ -1,4 +1,4 @@
-# Jin's version of the BU H4I Challenge
+# Jin's version of the BU H4I FA22 Challenge
 
 This is a mess of frontend and backend code patched together through sleep deprivation
 
@@ -6,6 +6,10 @@ React code is a development version for testing and examining for educational pu
 Please do not use this for actual deployment (but you can try). 
 
 Access to database is insecure and does not check for credentials (there aren't even credential checks in the code).
+
+TODO:
+- include an option to connect to Altas
+- work on security
 
 To test the website:
   1. start a running local instance of MongoDB ([MongoDB Community download](https://www.mongodb.com/docs/manual/administration/install-community/))
@@ -20,4 +24,4 @@ To test the website:
 <br/>
 Have fun breaking thing!
 
-![crocodile](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/OrinocoCrocodile.jpg/440px-OrinocoCrocodile.jpg)
+[![crocodile](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/OrinocoCrocodile.jpg/440px-OrinocoCrocodile.jpg)](https://www.youtube.com/watch?v=RXn1g0xtUMk)

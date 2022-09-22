@@ -5,7 +5,6 @@ import { getTasks, deleteAllTask} from "../services/taskServices";
 const TaskList = () => {
 
   // These tasks gets overwritten when the database is fetched
-  // Only the immortal snail understand why these tasks exists
   const [tasks, setTasks] = useState([
     { task: "test1" },
     { task: "test2" },
